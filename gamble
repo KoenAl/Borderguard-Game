@@ -1,0 +1,32 @@
+gamblegamble = false;
+if (guardmoney >= 500) then {
+boss say3d "shop2";
+teamleader sidechat "********************************";
+teamleader sidechat format["Current bank account %1", guardmoney];
+teamleader sidechat "Betting for $500";
+
+
+_min = 250;
+_max = 5000;
+value = floor(random _max + _min);
+sleep 1;
+teamleader sidechat "---------------------";
+teamleader sidechat format["Dealer Deals %1", value];
+sleep 2;
+teamleader sidechat format["You need to beat %1", value];
+
+_min = 0;
+_max = 4500;
+value2 = floor(random _max + _min);
+
+teamleader sidechat "You draw...";
+teamleader sidechat "---------------------";
+sleep 3;
+teamleader sidechat format[" %1", value2];
+
+sleep 1;
+
+	if (value >= value2) then { boss say3d "shop3";teamleader sidechat "Dealer wins! beter luck next time buddy - $500 ";guardmoney = guardmoney - 500;sleep 2;teamleader sidechat format["Current bank account %1", guardmoney];}
+	else{ boss say3d "shop4";teamleader sidechat "YOU WIN! + $500 ";guardmoney = guardmoney + 500;sleep 2; teamleader sidechat format["Current bank account %1", guardmoney];}
+
+}else {boss say3d "shop5"; teamleader sidechat "COME BACK WHEN YOU GOT SOME MONEY BUDDY (500 REQUIRED)";}
